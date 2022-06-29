@@ -23,21 +23,29 @@ function calcular(parametro) {
 }
 
 function calcularSalario() {
+    let verificaNAN = document.getElementById('salario').value;
+    
     let salarioLiquido = parseInt(document.getElementById('salario').value);
     
+    if(verificaNAN === ""){
+        alert("Digite um valor valido para o salario bruto");
+    }
+    else{
+        let salariobruto
+        let INSS = 5/100;
+        let IRPF = 7/100;
+        console.log(salarioLiquido)
 
-    let salariobruto
-    let INSS = 5/100;
-    let IRPF = 7/100;
-    console.log(salarioLiquido)
+        
+        salariobruto = salarioLiquido - (salarioLiquido*INSS) - (salarioLiquido*IRPF);
+        
+
+        console.log(salariobruto)
+
+        //document.getElementById("resultadoSalario").setAttribute('value',salariobruto);
+        document.getElementById('resultadoSalario').value = salariobruto;
+    }
 
     
-    salariobruto = salarioLiquido - (salarioLiquido*INSS) - (salarioLiquido*IRPF);
-    
-
-    console.log(salariobruto)
-
-    document.getElementById("resultadoSalario").setAttribute('value',salariobruto);
-
 
 }
